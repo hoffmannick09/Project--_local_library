@@ -20,9 +20,16 @@ function getBooksBorrowedCount(books) {
     return counter
   }
 
+
+  //HELPER FUNCTION FOR getMostCommonGenres FUNCTION
+function genres(books) {
+  return books.map((book) => book.genre)
+}
+
+
 function getMostCommonGenres(books) {
-  let commonGenres = []
-  let genresArray = books.map((book) => book.genre);
+  let commonGenres = [];
+  let genresArray = genres(books)
   genresArray.forEach(genre => {
     let exists = commonGenres.find(bookGenre => bookGenre.name === genre)
     if (!exists){
